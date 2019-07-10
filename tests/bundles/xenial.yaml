@@ -1,0 +1,6 @@
+series: &series xenial
+
+applications:
+  the_lounge:
+    charm: the_lounge
+    series: *series

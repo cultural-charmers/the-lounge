@@ -1,0 +1,8 @@
+charm-name: the_lounge
+gate_bundles:
+  - xenial
+  - bionic
+smoke_bundles:
+  - bionic
+tests:
+  - tests.tests.test_the_lounge.BasicCharmTest
