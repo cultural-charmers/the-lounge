@@ -19,7 +19,7 @@
 import logging
 import unittest
 
-import zaza.model
+# import zaza.model
 
 
 class BasicTest(unittest.TestCase):

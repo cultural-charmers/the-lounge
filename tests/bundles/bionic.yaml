@@ -1,6 +1,6 @@
 series: &series bionic
 
 applications:
-  the_lounge:
-    charm: the_lounge
+  the-lounge:
+    charm: ../../../the-lounge
     series: *series

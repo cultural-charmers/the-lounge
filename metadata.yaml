@@ -1,8 +1,8 @@
-name: $metadata.package
-summary: $metadata.summary
-maintainer: $metadata.maintainer
+name: the-lounge
+summary: The Lounge is a web frontend for IRC
+maintainer: Chris MacNaughton <charms@chris.centauri.solutions>
 description: |
-  $metadata.description
+ The Lounge is a web frontend for IRC
 tags:
   # Replace "misc" with one or more whitelisted tags from this list:
   # https://jujucharms.com/docs/stable/authors-charm-metadata

@@ -1,6 +1,7 @@
 series: &series xenial
 
 applications:
-  the_lounge:
-    charm: the_lounge
+  the-lounge:
+    charm: ../../../the-lounge
     series: *series
+    num-units: 1
