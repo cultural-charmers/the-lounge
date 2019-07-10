@@ -16,6 +16,7 @@ hooks = hookenv.Hooks()
 @hooks.hook('install')
 def install():
     hookenv.log('Installing the_lounge')
+    the_lounge.install(the_lounge.download())
 
 
 @hooks.hook('config-changed')
