@@ -4,3 +4,4 @@ applications:
   the-lounge:
     charm: ../../../the-lounge
     series: *series
+    num_units: 1

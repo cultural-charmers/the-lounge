@@ -1,4 +1,13 @@
-options: {}
+options:
+  source:
+    type: string
+    default: "https://github.com/thelounge/thelounge/releases/download/v3.0.1/thelounge_3.0.1-1_all.deb"
+    description: |
+      The location to fetch the .deb for TheLougne at
+  server-name:
+    type: string
+    default:
+    description: What hostname will The Lougne be configured to listen on
   # string-option:
   #   type: string
   #   default: "Default Value"
