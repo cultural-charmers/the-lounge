@@ -10,6 +10,7 @@ from charmhelpers.fetch import (
     filter_installed_packages,
 )
 from charmhelpers.core.host import (
+    service_restart,
     service_resume,
     service_pause,
 )
@@ -30,17 +31,23 @@ def install():
     hookenv.log("About to install {}".format(packages))
     apt_install(packages)
     the_lounge.install(the_lounge.download())
-    config = hookenv.config()
-    opts = {
-        'server_name': config.get('server-name', '_'),
-    }
-    render('nginx.conf', '/etc/nginx/thelougne.conf', opts)
 
 
 @hooks.hook('config-changed')
 def config_changed():
     hookenv.log('Upgrading the_lounge config')
-    # Do things!
+
+    config = hookenv.config()
+    opts = {
+        'server_name': config.get('server-name', '_'),
+        'public': str(config.get('public', False)).lower(),
+    }
+    render('nginx.conf', '/etc/nginx/sites-enabled/thelougne.conf', opts)
+    os.remove('/etc/nginx/sites-enabled/default')
+    render('config.js', '/etc/thelounge/config.js', opts)
+    service_restart('nginx')
+    service_restart('thelounge')
+
     hookenv.status_set('active', 'The Lounge is ready')
 
 

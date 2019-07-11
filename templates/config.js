@@ -16,7 +16,7 @@ module.exports = {
 	//   channels and scrollbacks are available when they come back.
 	//
 	// This value is set to `false` by default.
-	public: false,
+	public: {{ public }},
 
 	// ### `host`
 	//
@@ -26,7 +26,7 @@ module.exports = {
 	// For UNIX domain sockets, use `"unix:/absolute/path/to/file.sock"`.
 	//
 	// This value is set to `undefined` by default to listen on all interfaces.
-	host: undefined,
+	host: '127.0.0.1',
 
 	// ### `port`
 	//

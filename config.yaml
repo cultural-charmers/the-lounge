@@ -8,6 +8,19 @@ options:
     type: string
     default:
     description: What hostname will The Lougne be configured to listen on
+  public:
+    type: boolean
+    default: false
+    description: |
+        When set to `true`, The Lounge starts in public mode. When set to `false`,
+        it starts in private mode.
+
+        - A **public server** does not require authentication. Anyone can connect
+          to IRC networks in this mode. All IRC connections and channel
+          scrollbacks are lost when a user leaves the client.
+        - A **private server** requires users to log in. Their IRC connections are
+          kept even when they are not using or logged in to the client. All joined
+          channels and scrollbacks are available when they come back.
   # string-option:
   #   type: string
   #   default: "Default Value"
