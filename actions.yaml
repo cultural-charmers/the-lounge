@@ -1,2 +1,16 @@
-# example-action:
-#   description: "This is just a test"
+list-users:
+  description: "List all users"
+add-user:
+  description: "Add a user"
+  params:
+    user:
+      type: string
+      description: |
+        The user name for the newly created user
+delete-user:
+  description: "Delete a user"
+  params:
+    user:
+      type: string
+      description: |
+        The user name  of the user you with to remove

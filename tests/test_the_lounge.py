@@ -26,4 +26,4 @@ class BasicTest(unittest.TestCase):
     """Encapsulate the_lounge tests."""
 
     def test_the_lounge(self):
-        logging.info('Testing the_lounge')
+        logging.info('Testing The Lounge')

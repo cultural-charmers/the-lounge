@@ -27,7 +27,9 @@ hooks = hookenv.Hooks()
 @hooks.hook('install')
 def install():
     hookenv.log('Installing the_lounge')
-    packages = filter_installed_packages(['nodejs', 'nginx'])
+    packages = filter_installed_packages(
+        ['nodejs', 'nginx', 'python3-bcrypt']
+    )
     hookenv.log("About to install {}".format(packages))
     apt_install(packages)
     the_lounge.install(the_lounge.download())
@@ -43,12 +45,16 @@ def config_changed():
         'public': str(config.get('public', False)).lower(),
     }
     render('nginx.conf', '/etc/nginx/sites-enabled/thelougne.conf', opts)
-    os.remove('/etc/nginx/sites-enabled/default')
+    try:
+        os.remove('/etc/nginx/sites-enabled/default')
+    except FileNotFoundError:
+        # We've already gotten around to this
+        pass
     render('config.js', '/etc/thelounge/config.js', opts)
     service_restart('nginx')
     service_restart('thelounge')
 
-    hookenv.status_set('active', 'The Lounge is ready')
+    hookenv.status_set('active', 'Unit is ready')
 
 
 @hooks.hook('start')
@@ -61,7 +67,6 @@ def start():
 def stop():
     hookenv.log('Stopping the_lounge')
     service_pause('thelounge')
-
 
 
 @hooks.hook('upgrade-charm')
